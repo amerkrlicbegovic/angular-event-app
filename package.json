@@ -10,6 +10,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "author": {
+    "name": "Amer Krlicbegovic"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "5.2.8",

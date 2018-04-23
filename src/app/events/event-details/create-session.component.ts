@@ -3,13 +3,21 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { ISession, restrictedWords } from '../shared/index'
 
 @Component({
-  selector:'create-session',
+  selector: 'create-session',
   templateUrl: './create-session.component.html',
-
+  styles: [`
+    em {float:right; color:#E05C65; padding-left:10px;}
+    .error input, .error select, .error textarea {background-color:#E3C3C5;}
+    .error ::-webkit-input-placeholder { color: #999; }
+    .error :-moz-placeholder { color: #999; }
+    .error ::-moz-placeholder {color: #999; }
+    .error :ms-input-placeholder { color: #999; }
+  `]
 })
 export class CreateSessionComponent implements OnInit {
   @Output() saveNewSession = new EventEmitter()
-  @Output() cancleAddSession = new EventEmitter()
+  @Output() cancelAddSession = new EventEmitter()
+
   newSessionForm: FormGroup
   name: FormControl
   presenter: FormControl
@@ -45,7 +53,8 @@ export class CreateSessionComponent implements OnInit {
     }
     this.saveNewSession.emit(session)
   }
-  cancle(){
-    this.cancleAddSession.emit()
+
+  cancel() {
+    this.cancelAddSession.emit()
   }
 }

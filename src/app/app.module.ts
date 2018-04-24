@@ -22,7 +22,8 @@ import { NavBarComponent } from './nav/nav-bar.component'
 import {JQ_TOKEN,
   TOASTR_TOKEN,
   Toastr,
-  CollapsibleWellComponent
+  CollapsibleWellComponent,
+  SimpleModalComponent
 } from './common/index';
 
 import { appRoutes } from './routes'
@@ -50,11 +51,13 @@ let jQuery = window['$'];
     CreateSessionComponent,
     SessionListComponent,
     CollapsibleWellComponent,
+    SimpleModalComponent,
     DurationPipe
   ],
   providers: [
     EventService,
     { provide: TOASTR_TOKEN, useValue: toastr },
+    { provide: JQ_TOKEN, useValue: jQuery },
     EventRouteActivator,
     EventListResolver,
     AuthService,

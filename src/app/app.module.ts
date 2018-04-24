@@ -15,20 +15,13 @@ import {
   SessionListComponent,
   DurationPipe
 } from './events/index'
-
 import { EventsAppComponent } from './events-app.component'
 import { NavBarComponent } from './nav/nav-bar.component'
-
-import {JQ_TOKEN,
-  TOASTR_TOKEN,
-  Toastr,
-  CollapsibleWellComponent,
-  SimpleModalComponent
-} from './common/index';
-
+import { JQ_TOKEN, TOASTR_TOKEN, Toastr, CollapsibleWellComponent, SimpleModalComponent} from './common/index';
 import { appRoutes } from './routes'
 import { Error404Component } from './errors/404.component'
 import { AuthService } from './user/auth.service'
+import { ModalTriggerDirective } from './common/modalTrigger.directive';
 
 let toastr:Toastr = window['toastr'];
 let jQuery = window['$'];
@@ -52,18 +45,19 @@ let jQuery = window['$'];
     SessionListComponent,
     CollapsibleWellComponent,
     SimpleModalComponent,
+    ModalTriggerDirective,
     DurationPipe
   ],
   providers: [
-    EventService,
+    EventService, 
     { provide: TOASTR_TOKEN, useValue: toastr },
     { provide: JQ_TOKEN, useValue: jQuery },
     EventRouteActivator,
     EventListResolver,
     AuthService,
-    {
-      provide: 'canDeactivateCreateEvent',
-      useValue: checkDirtyState
+    { 
+      provide: 'canDeactivateCreateEvent', 
+      useValue: checkDirtyState 
     }
   ],
   bootstrap: [EventsAppComponent]

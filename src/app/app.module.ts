@@ -13,7 +13,9 @@ import {
   EventListResolver,
   CreateSessionComponent,
   SessionListComponent,
-  DurationPipe
+  UpvoteComponent,
+  DurationPipe,
+  VoterService
 } from './events/index'
 import { EventsAppComponent } from './events-app.component'
 import { NavBarComponent } from './nav/nav-bar.component'
@@ -46,18 +48,20 @@ let jQuery = window['$'];
     CollapsibleWellComponent,
     SimpleModalComponent,
     ModalTriggerDirective,
-    DurationPipe
+    DurationPipe,
+    VoterService,
+    UpvoteComponent
   ],
   providers: [
-    EventService, 
+    EventService,
     { provide: TOASTR_TOKEN, useValue: toastr },
     { provide: JQ_TOKEN, useValue: jQuery },
     EventRouteActivator,
     EventListResolver,
     AuthService,
-    { 
-      provide: 'canDeactivateCreateEvent', 
-      useValue: checkDirtyState 
+    {
+      provide: 'canDeactivateCreateEvent',
+      useValue: checkDirtyState
     }
   ],
   bootstrap: [EventsAppComponent]

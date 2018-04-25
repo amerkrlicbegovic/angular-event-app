@@ -16,7 +16,6 @@ import { Input, Output, Component, EventEmitter } from "@angular/core";
     </div>
   `
 })
-
 export class UpvoteComponent {
   @Input() count: number;
   @Input() set voted(val) {

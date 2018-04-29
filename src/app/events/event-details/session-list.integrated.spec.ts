@@ -43,4 +43,19 @@ describe('SesisonListComponent', () => {
     debugEl = fixture.debugElement;
     element = fixture.nativeElement;
   })
+  describe('initial display', () => {
+
+    it('should have the correct session title', () => {
+      component.sessions = [{ id: 3, name: 'Session 1', presenter: 'Joe', duration: 1, level: 'beginner', abstract: 'abstract', voters: ['john', 'bob']}];
+      component.filterBy = 'all';
+      component.sortBy = 'name';
+      component.eventId = 4;
+
+      component.ngOnChanges();
+      fixture.detectChanges();
+
+      // expect(element.querySelector('[well-title]').textContent).toContain('Session 1');
+      expect(debugEl.query(By.css('[well-title]')).nativeElement.textContent).toContain('Session 1');
+    })
+  })
 })
